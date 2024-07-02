@@ -9,10 +9,11 @@ abstract class InventarioDeProductos {
     private String descripcion;
     private LocalDate fechaDeVencimiento;
 
-    public InventarioDeProductos (String nombre, int cantidadDeProducto, boolean codigo, String marca, String descripcion, LocalDate fechaDeVencimiento){
+    public InventarioDeProductos (String nombre, int cantidadDeProducto, boolean vigente , int codigo, String marca, String descripcion, LocalDate fechaDeVencimiento){
         this.nombre=nombre;
         this.cantidadDeProducto= cantidadDeProducto;
         this.vigente=vigente;
+        this.codigo=codigo;
         this.marca=marca;
         this.descripcion=descripcion;
         this.fechaDeVencimiento=fechaDeVencimiento;
@@ -52,14 +53,11 @@ abstract class InventarioDeProductos {
         this.vigente = vigente;
     }
     
+    
 
-    public abstract void añadirProducto();
-    public abstract void mostrarListaDeProductos();
-    public abstract void mostrarPorFechaDeCaducidad();
-    public abstract void mostrarEnOrdenAlfabetico();
-    public abstract void venderProductos();
-    public abstract void eliminarProducto();
-    public abstract void notificar();
+ 
+    public abstract void mostrarProducto();
+
 
 
 
