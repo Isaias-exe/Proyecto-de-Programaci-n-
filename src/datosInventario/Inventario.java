@@ -37,6 +37,7 @@ public class Inventario {
     }
 
     public void productosProntosAvencer() {
+        System.out.println("Productos pronto a vencerse, debería venderlos lo más antes posible");
         LocalDate hoy = LocalDate.now();
         for (InventarioDeProductos producto : productos) {
             if (producto.getFechaDeVencimiento().isAfter(hoy) && producto.getFechaDeVencimiento().isBefore(hoy.plusDays(15))) {
@@ -46,6 +47,7 @@ public class Inventario {
     }
 
     public void productosVencidos() {
+        System.out.println("Productos vencidos, por favor retirar del inventario");
         LocalDate hoy = LocalDate.now();
         for (InventarioDeProductos producto : productos) {
             if (producto.getFechaDeVencimiento().isBefore(hoy)) {

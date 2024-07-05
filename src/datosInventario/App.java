@@ -22,6 +22,8 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         System.out.println("Bienvenida Nubia Miranda");
+        leerProductosEmpacados();
+        leerProductosEnvasados();
 
         while (true) {
             try {
@@ -218,4 +220,39 @@ public class App {
         }
     }
     
+
+    private static void leerProductosEmpacados() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Inventario_Prod_Empacados.dat"))) {
+            while (true) {
+                try {
+                    ProductosEmpacados producto = (ProductosEmpacados) ois.readObject();
+                    inventario.agregarProducto(producto);
+                } catch (EOFException eof) {
+                    break;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo de productos empacados no encontrado, se creará uno nuevo al guardar productos.");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error al leer archivo de productos empacados: " + e.getMessage());
+        }
+    }
+
+    private static void leerProductosEnvasados() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Inventario_Prod_Envasados.dat"))) {
+            while (true) {
+                try {
+                    ProductosEnvasados producto = (ProductosEnvasados) ois.readObject();
+                    inventario.agregarProducto(producto);
+                } catch (EOFException eof) {
+                    break;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Archivo de productos envasados no encontrado, se creará uno nuevo al guardar productos.");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error al leer archivo de productos envasados: " + e.getMessage());
+        }
+    }
 }
+
