@@ -1,10 +1,5 @@
 package datosInventario;
-
-
-
 import java.time.LocalDate;
-
-
 public class ProductosEmpacados extends InventarioDeProductos{
     private double pesoEnKg;
 
@@ -30,15 +25,22 @@ public class ProductosEmpacados extends InventarioDeProductos{
          
     @Override
     public void mostrarInformacion(){
-
-        System.out.println("Producto empacado { "+"Nombre= "+getNombre()+'\'' +"Cantidad de producto= "+getCantidadDeProducto()+
-        " Codigo= "+getCodigo()+"Marca= "+getMarca()+" Descripcion= "+getDescripcion()+" Fecha de vencimiento= "+getFechaDeVencimiento()+"Peso de producto= "+getPesoEnKg()+" }");
+        System.out.println("====================================");
+        System.out.print("Detalles del: " + getNombre() + " | ");
+        System.out.print( "Cantidad en inventario: " + getCantidadDeProducto() + " | " );
+        System.out.print("Marca: " + getMarca() + " | " );
+        System.out.print(getPesoEnKg() + "Kg" + " | ");
+        System.out.print("Código: " + getCodigo() + " | ");
+        System.out.print(getDescripcion() + " | ");
+        System.out.print("Vence: " + getFechaDeVencimiento());
+        
     }
 
     @Override
     public String toString() {
-        return this.getNombre() + this.getCantidadDeProducto() + this.getCodigo() + 
-        this.getMarca() + this.getDescripcion() + this.getFechaDeVencimiento() + this.getPesoEnKg();
-   }
+        return super.toString() + ", Peso en kg: " + getPesoEnKg();
+    }
+
+  
 
 }

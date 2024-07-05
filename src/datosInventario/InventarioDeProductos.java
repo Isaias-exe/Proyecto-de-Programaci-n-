@@ -63,6 +63,9 @@ abstract class InventarioDeProductos  implements Serializable {
 
     public abstract void mostrarInformacion();
 
+    
+
+
 
 
     
