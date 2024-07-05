@@ -1,23 +1,27 @@
-import java.time.LocalDate;
-abstract class InventarioDeProductos {
+package datosInventario;
+import java.io.Serializable;
 
-    public String nombre;
+
+import java.time.LocalDate;
+abstract class InventarioDeProductos  implements Serializable {
+
+    private String nombre;
     private int cantidadDeProducto;
-    private boolean vigente;
     private int codigo;
     private String marca;
     private String descripcion;
     private LocalDate fechaDeVencimiento;
 
-    public InventarioDeProductos (String nombre, int cantidadDeProducto, boolean vigente , int codigo, String marca, String descripcion, LocalDate fechaDeVencimiento){
+    public InventarioDeProductos (String nombre, int cantidadDeProducto, int codigo, String marca, String descripcion, LocalDate fechaDeVencimiento){
         this.nombre=nombre;
         this.cantidadDeProducto= cantidadDeProducto;
-        this.vigente=vigente;
         this.codigo=codigo;
         this.marca=marca;
         this.descripcion=descripcion;
         this.fechaDeVencimiento=fechaDeVencimiento;
     }
+    InventarioDeProductos(){ 
+      }
 
     public void setCantidadDeProducto(int cantidadDeProducto) {
         this.cantidadDeProducto = cantidadDeProducto;
@@ -49,17 +53,22 @@ abstract class InventarioDeProductos {
     public String getMarca() {
         return marca;
     }
-    public void setVigente(boolean vigente) {
-        this.vigente = vigente;
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
+
+    public abstract void mostrarInformacion();
+
+
+
     
-
- 
-    public abstract void mostrarProducto();
-
-
-
-
-
+    @Override
+    public String toString() {
+        return this.getNombre() + this.getCantidadDeProducto() + this.getCodigo() + 
+        this.getMarca() + this.getDescripcion() + this.getFechaDeVencimiento();
+   }
 }
