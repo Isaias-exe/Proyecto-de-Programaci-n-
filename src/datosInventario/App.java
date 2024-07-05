@@ -105,6 +105,9 @@ public class App {
             inventario.eliminarProductos(codigoEliminar);
         } catch (NumberFormatException e) {
             System.out.println("Por favor ingrese un número válido.");
+
+            escribirProductoEmpacado();
+            escribirProductoEnvasado();
         }
     }
 

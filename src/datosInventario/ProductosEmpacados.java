@@ -36,11 +36,5 @@ public class ProductosEmpacados extends InventarioDeProductos{
         
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + ", Peso en kg: " + getPesoEnKg();
-    }
-
-  
 
 }

@@ -63,15 +63,4 @@ abstract class InventarioDeProductos  implements Serializable {
 
     public abstract void mostrarInformacion();
 
-    
-
-
-
-
-    
-    @Override
-    public String toString() {
-        return this.getNombre() + this.getCantidadDeProducto() + this.getCodigo() + 
-        this.getMarca() + this.getDescripcion() + this.getFechaDeVencimiento();
-   }
 }

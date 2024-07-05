@@ -33,8 +33,4 @@ public class ProductosEnvasados extends InventarioDeProductos {
         System.out.print("Vence: " + getFechaDeVencimiento());
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + ", Cantidad en litros: " + getCantidadEnLitros();
-    }
 }
